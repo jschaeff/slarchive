@@ -840,6 +840,12 @@ ds_openfile (DataStream *datastream, const char *filename)
   /* Free path component list */
   sl_strparse (NULL, NULL, &dplist);
 
+  /* Log file creation */
+  if (access(filename, F_OK) != 0)
+    {
+      sl_log (0, 0, "New data stream file created: %s\n", filename);
+      fflush(stdout);
+    }
   /* Open file */
   if ( (oret = open (filename, flags, mode)) != -1 )
     {

@@ -843,7 +843,7 @@ ds_openfile (DataStream *datastream, const char *filename)
   /* Log file creation */
   if (access(filename, F_OK) != 0)
     {
-      sl_log (0, 1, "New data stream file created: %s\n", filename);
+      sl_log (0, 0, "New data stream file created: %s\n", filename);
       fflush(stdout);
     }
   /* Open file */
